@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-sm bg-dark container" style="color: white; "> 
+    <ul style="margin-left: 5px;">
+        <strong>Logged in</strong> <a (click)="logout()" style="cursor: pointer; right: 0; margin-left: 50px;" class="btn btn-danger scrollto" routerLinkActive="active">Logout</a>
+
+    </ul>
+</nav>
+
+<br><br><br>
+<div class="container">
+    <div class="row d-flex justify-content-center" >
+        <div class="col text-center">
+            <img src="assets/images/docente.png" alt="Image" class="img-fluid mb-4 mt-4" style="height: 400px; width: 400px;" ><br>
+            <button (click)="tec()" type="button" class="btn btn-outline-primary btn-lg">Docenti</button>
+        </div>
+        <div class="col text-center">
+            <img src="assets/images/verifica.png" alt="Image1" class="img-fluid mb-4 mt-4" style="height: 400px; width: 400px;" ><br>
+            <button (click)="sicn()"type="button" class="btn btn-outline-primary btn-lg">Verifiche</button>
+        </div>
+    </div>
+</div>

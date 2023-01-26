@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+
+  client:
+      build:
+        dockerfile: Dockerfile
+        context: ./sito-verifiche-docenti
+      volumes:
+        - /app/node_modules 
+        - ./sito-verifiche-docenti:/app
+      ports:
+        - 4200:4200
+      networks:
+      - shared-network
+  server:
+      build:
+        dockerfile: Dockerfile
+        context: ./flask
+      volumes:
+        - ./flask:/app
+      ports:
+        - 5000:5000
+      networks:
+      - shared-network
+networks:
+  shared-network:

@@ -1,0 +1,10 @@
+flask
+Flask-MySQLdb
+pymongo
+flask_cors
+flask_restful 
+pyodbc
+pandas
+pymssql
+psycopg2
+#bson == 0.5.10

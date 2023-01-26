@@ -1,0 +1,48 @@
+<div class="panel panel-primary container">
+    <div class="panel-heading">
+      <h2>Exams List</h2>
+      <nav class="navbar navbar-expand-sm bg-dark" style="color: white; "> 
+        <ul >
+              <a (click)="back()" style="cursor: pointer; right: 0; margin-left: 10px;" class="btn btn-danger scrollto" routerLinkActive="active">Back</a>
+        </ul>
+      </nav><br>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <td>ID</td>
+            <td>Title</td>
+            <td>Course</td>
+            <td>Difficulty</td>
+            <td>Duration</td>
+            <td>Class</td>
+            <td>Subject</td>
+            <td>Download</td>
+            <td>Griglia</td>
+            <td>Delete</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of data">
+            <td>{{row.id}}</td>
+            <td>{{row.title}}</td>
+            <td>{{row.course}}</td>
+            <td>{{row.difficulty}}</td>
+            <td>{{row.duration}}</td>
+            <td>{{row.classe}}</td>
+            <td>{{row.subject}}</td>
+            <td>         
+              <a href="{{row.link}}" class="btn btn-warning btn-download btn-sm">&#8595;</a>
+            </td>
+            <td>         
+              <a href="{{row.griglia}}" class="btn btn-warning btn-download btn-sm">&#8595;</a>
+            </td>
+            <td width="150">
+              <button (click)="deleteVerifica(row.id)" class="btn btn-danger" style="margin-left: 10px"><i class="bi bi-trash3"></i>D</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

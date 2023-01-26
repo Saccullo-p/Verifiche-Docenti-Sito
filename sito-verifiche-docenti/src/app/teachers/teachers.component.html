@@ -1,0 +1,32 @@
+<div class="panel panel-primary container">
+    <div class="panel-heading">
+      <h2>Teachers List</h2>
+      <nav class="navbar navbar-expand-sm bg-dark" style="color: white; "> 
+        <ul >
+              <a (click)="back()" style="cursor: pointer; right: 0; margin-left: 10px;" class="btn btn-danger scrollto" routerLinkActive="active">Back</a>
+        </ul>
+      </nav><br>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>Email</td>
+            <!--<td>Pass</td>-->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of data">
+            <td>{{row.id}}</td>
+            <td>{{row.name}}</td>
+            <td>{{row.surname}}</td>
+            <td>{{row.email}}</td>
+            <!--<td>{{row.password}}</td>-->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
