@@ -30,7 +30,7 @@ CORS(app)
 
 @app.route('/')
 def index():
-    return ("HI")
+    return ("Modificare l'URL per visualizzare i dati.")
 
 
 @app.route('/teachers')
