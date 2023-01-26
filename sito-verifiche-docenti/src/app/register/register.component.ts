@@ -23,26 +23,41 @@ export class RegisterComponent implements OnInit {
 
   constructor(private http: HttpClient, public router: Router) { }
 
+  // Viene assegnato alla proprietà "baseUrlPrin" il valore della variabile "_API"
   private baseUrlPrin = flaskLink._API;
 
   ngOnInit(): void {
   }
+  
+  changeCase() {
+    if(this.name) {
+        this.name = this.name.charAt(0).toUpperCase() + this.name.slice(1);
+        this.surname = this.surname.charAt(0).toUpperCase() + this.surname.slice(1);
+    }
+  }
+
 
   register() {
-    this.http.post( this.baseUrlPrin + 'register',{ name: this.name, surname: this.surname, email: this.email, password: this.password }).subscribe(
+    // Viene inviata una richiesta POST contenente i dati di registrazione all'API
+    // Quando la richiesta viene completata con successo, la funzione "data" viene chiamata
+    this.http.post( this.baseUrlPrin + 'register',{ name: this.name.charAt(0).toUpperCase() + this.surname.slice(1), surname: this.surname.charAt(0).toUpperCase() + this.name.slice(1), email: this.email, password: this.password }).subscribe(
       data => {
         console.log(data);
+        // Il metodo "hasOwnProperty" serve per verificare se l'oggetto di risposta ha una proprietà "error"
+        // Se ha una proprietà "error", viene assegnato un messaggio di errore alla proprietà "errorMessage"
         if (data.hasOwnProperty('error')) {
-          this.errorMessage = "Error: Invalid Informations!!";
+          this.errorMessage = "Qualcosa è andato storto!";
         } else {
-          this.successMessage = "You have successfully Registerd!";
+          // Altrimenti viene assegnato un messaggio di successo alla proprietà "successMessage"
+          this.successMessage = "Registrazione effettuata con successo!";
           localStorage.setItem('user', JSON.stringify(data));
-          this.router.navigate(['/login']);
+          // Il metodo "navigate" serve per reindirizzare ad un'altra pagina
+          this.router.navigate(['/dashboard']);
         }
       },
       error => {
         console.log(error);
-        this.errorMessage = "Error: Invalid Informations!!";
+        this.errorMessage = "Qualcosa è andato storto!";
       }
     );
   }

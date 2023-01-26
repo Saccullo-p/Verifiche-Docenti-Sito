@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
       },
       error => {
         console.log(error);
-        this.errorMessage = "Error: Invalid Informations!!";
+        this.errorMessage = "Qualcosa è andato storto!";
   })
   }
 
