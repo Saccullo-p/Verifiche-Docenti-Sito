@@ -31,15 +31,17 @@ export class RegisterComponent implements OnInit {
 
   changeCase() {
     if(this.name) {
-        this.name = this.name.charAt(0).toUpperCase() + this.name.slice(1);
-        this.surname = this.surname.charAt(0).toUpperCase() + this.surname.slice(1);
+      this.name = this.name.charAt(0).toUpperCase() + this.name.slice(1);
+    }
+    if(this.surname){
+      this.surname = this.surname.charAt(0).toUpperCase() + this.surname.slice(1);
     }
   }
 
   register() {
     // Viene inviata una richiesta POST contenente i dati di registrazione all'API
     // Quando la richiesta viene completata con successo, la funzione "data" viene chiamata
-    this.http.post( this.baseUrlPrin + 'register',{ name: this.name.charAt(0).toUpperCase() + this.surname.slice(1), surname: this.surname.charAt(0).toUpperCase() + this.name.slice(1), email: this.email, password: this.password }).subscribe(
+    this.http.post( this.baseUrlPrin + 'register',{ name: this.name.charAt(0).toUpperCase() + this.name.slice(1), surname: this.surname.charAt(0).toUpperCase() + this.surname.slice(1), email: this.email, password: this.password }).subscribe(
       data => {
         console.log(data);
         // Il metodo "hasOwnProperty" serve per verificare se l'oggetto di risposta ha una proprietà "error"
@@ -57,6 +59,7 @@ export class RegisterComponent implements OnInit {
           this.router.navigate(['/dashboard']);
         }
       },
+      
       error => {
         console.log(error);
         this.errorMessage = "Qualcosa è andato storto!";

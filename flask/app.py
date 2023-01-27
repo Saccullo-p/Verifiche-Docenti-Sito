@@ -112,7 +112,7 @@ def register():
         else:
         # Esegue la query
             cursor.execute(
-                'INSERT INTO docenti (name, surname, email, password) VALUES (%s, %s, %s, %s)', (name,surname, email, password))
+                'INSERT INTO docenti (name, surname, email, password) VALUES (%s, %s, %s, %s)', (name, surname, email, password))
             conn.commit()
             return jsonify({"message": "Registrazione effettuata con successo!"}), 201
 

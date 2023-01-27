@@ -7,20 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  t: any;
 
   constructor(private router: Router) {}
-  
 
   logout()  {
-    // Clear session data
-    this.t = localStorage.removeItem('verifca');
     this.router.navigate(['/login']);
   }
-  tec()  {
+  doce()  {
     this.router.navigate(['/teachers']);
   }
-  sicn()  {
+  veri()  {
     this.router.navigate(['/verifica']);
   }
 

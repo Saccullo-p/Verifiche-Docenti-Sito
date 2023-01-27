@@ -12,7 +12,9 @@ import {Location} from '@angular/common'
 })
 
 export class TeachersComponent {
+  // Viene creato un vettore "data" di tipo "Docente"
   data: Docente[] = undefined!;
+  // Viene creato l'Observable "obsRooms" di oggetti "Docente"
   obsRooms: Observable<Docente[]> | undefined
 
   constructor(private userService: ExamService, private router: Router,private location: Location ) { }

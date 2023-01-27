@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   obsLog: Observable<object> | undefined
   data: any = undefined!;
 
-  
+  // Viene assegnato alla proprietà "baseUrlPrin" il valore della variabile "_API"
   private baseUrlPrin = flaskLink._API;
 
   constructor(private http: HttpClient, public router: Router) { }
@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/dashboard']);
         }
       },
+      
       error => {
         console.log(error);
         this.errorMessage = "Qualcosa è andato storto!";
