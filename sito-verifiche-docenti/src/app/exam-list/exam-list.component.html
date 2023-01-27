@@ -1,9 +1,9 @@
 <div class="panel panel-primary container">
     <div class="panel-heading">
-      <h2>Exams List</h2>
+      <h2>Verifiche</h2>
       <nav class="navbar navbar-expand-sm bg-dark" style="color: white; "> 
-        <ul >
-              <a (click)="back()" style="cursor: pointer; right: 0; margin-left: 10px;" class="btn btn-danger scrollto" routerLinkActive="active">Back</a>
+        <ul>
+            <a (click)="back()" style="cursor: pointer; right: 0; margin-left: 1px; margin-top: 10px;" class="btn btn-danger" routerLinkActive="active">Home</a>
         </ul>
       </nav><br>
     </div>
@@ -12,15 +12,15 @@
         <thead>
           <tr>
             <td>ID</td>
-            <td>Title</td>
-            <td>Course</td>
-            <td>Difficulty</td>
-            <td>Duration</td>
-            <td>Class</td>
-            <td>Subject</td>
-            <td>Download</td>
+            <td>Titolo</td>
+            <td>Corso</td>
+            <td>Difficoltà</td>
+            <td>Durata</td>
+            <td>Classe</td>
+            <td>Materia</td>
+            <td>Scarica</td>
             <td>Griglia</td>
-            <td>Delete</td>
+            <td>Rimuovi</td>
           </tr>
         </thead>
         <tbody>
@@ -33,13 +33,13 @@
             <td>{{row.classe}}</td>
             <td>{{row.subject}}</td>
             <td>         
-              <a href="{{row.link}}" class="btn btn-warning btn-download btn-sm">&#8595;</a>
+              <a href="{{row.link}}" class="btn btn-success">&#8595;</a>
             </td>
             <td>         
-              <a href="{{row.griglia}}" class="btn btn-warning btn-download btn-sm">&#8595;</a>
+              <a href="{{row.griglia}}" class="btn btn-warning">&#8595;</a>
             </td>
             <td width="150">
-              <button (click)="deleteVerifica(row.id)" class="btn btn-danger" style="margin-left: 10px"><i class="bi bi-trash3"></i>D</button>
+              <button (click)="deleteVerifica(row.id)" class="btn btn-danger" style="margin-left: 10px"><i class="bi bi-trash3"></i>X</button>
             </td>
           </tr>
         </tbody>

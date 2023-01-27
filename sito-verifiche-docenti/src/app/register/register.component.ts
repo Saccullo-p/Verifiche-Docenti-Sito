@@ -10,6 +10,7 @@ import { flaskLink } from '../link';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
   name: string = '';
   surname: string= '';
@@ -20,7 +21,6 @@ export class RegisterComponent implements OnInit {
   obsReg: Observable<Docente[]> = undefined!;
   data: any = undefined!;
 
-
   constructor(private http: HttpClient, public router: Router) { }
 
   // Viene assegnato alla proprietà "baseUrlPrin" il valore della variabile "_API"
@@ -28,14 +28,13 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   changeCase() {
     if(this.name) {
         this.name = this.name.charAt(0).toUpperCase() + this.name.slice(1);
         this.surname = this.surname.charAt(0).toUpperCase() + this.surname.slice(1);
     }
   }
-
 
   register() {
     // Viene inviata una richiesta POST contenente i dati di registrazione all'API
@@ -47,6 +46,9 @@ export class RegisterComponent implements OnInit {
         // Se ha una proprietà "error", viene assegnato un messaggio di errore alla proprietà "errorMessage"
         if (data.hasOwnProperty('error')) {
           this.errorMessage = "Qualcosa è andato storto!";
+          setTimeout(() => {
+            this.errorMessage = '';
+          }, 3000);
         } else {
           // Altrimenti viene assegnato un messaggio di successo alla proprietà "successMessage"
           this.successMessage = "Registrazione effettuata con successo!";
@@ -58,6 +60,9 @@ export class RegisterComponent implements OnInit {
       error => {
         console.log(error);
         this.errorMessage = "Qualcosa è andato storto!";
+        setTimeout(() => {
+          this.errorMessage = '';
+        }, 3000);
       }
     );
   }
