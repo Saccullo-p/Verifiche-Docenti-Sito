@@ -8,9 +8,7 @@ import pymssql
 import pandas as pd
 from bson import json_util
 import json
-
-
-import psycopg2  # pip install psycopg2
+import psycopg2
 import psycopg2.extras
 
 app = Flask(__name__)
@@ -111,9 +109,10 @@ def register():
             return jsonify({"message": "Compilare tutti i campi del modulo!"}), 400
         else:
         # Esegue la query
-        cursor.execute('INSERT INTO docenti (name, surname, email, password) VALUES (%s, %s, %s, %s)', (name, surname, email, password))
-        conn.commit()
-        return jsonify({"message": "Registrazione effettuata con successo!"}), 201
+            cursor.execute(
+                'INSERT INTO docenti (name, surname, email, password) VALUES (%s, %s, %s, %s)', (name,surname, email, password))
+            conn.commit()
+            return jsonify({"message": "Registrazione effettuata con successo!"}), 201
 
 
 @app.route('/verifiche', methods=['POST', 'GET'])
