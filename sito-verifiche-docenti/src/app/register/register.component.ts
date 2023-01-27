@@ -56,7 +56,7 @@ export class RegisterComponent implements OnInit {
           this.successMessage = "Registrazione effettuata con successo!";
           localStorage.setItem('user', JSON.stringify(data));
           // Il metodo "navigate" serve per reindirizzare ad un'altra pagina
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/home']);
         }
       },
       

@@ -37,6 +37,6 @@ export class ExamListComponent implements OnInit {
 
   back() : void
   {
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/home']);
   }
 }

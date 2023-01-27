@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ExamListComponent } from './exam-list/exam-list.component';
+import { DocentiComponent } from './docenti/docenti.component';
+import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { TeachersComponent } from './teachers/teachers.component';
+import { VerificheComponent } from './verifiche/verifiche.component';
 
 // Vengono definiti i percorsi dei diversi componenti
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'teachers', component: TeachersComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'verifica', component: ExamListComponent },
+  { path: 'registrati', component: RegisterComponent },
+  { path: 'docenti', component: DocentiComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'verifica', component: VerificheComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 

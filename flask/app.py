@@ -32,7 +32,7 @@ def index():
     return ("Modificare l'URL per visualizzare i dati.")
 
 
-@app.route('/teachers')
+@app.route('/docenti')
 def docenti():
     # Crea una connessione
     conn = connection()
@@ -80,18 +80,18 @@ def logout():
         return jsonify({"message": "You are not logged in"}), 400
         
 
-@app.route('/register', methods=['GET', 'POST'])
+@app.route('/registrati', methods=['GET', 'POST'])
 def register():
     # Se la richiesta HTTP è di tipo "POST"
     if request.method == 'POST':
         # Il valore del campo "name" viene associato alla variabile "name"
-        name = request.json['name']
+        Nome = request.json['name']
         # Il valore del campo "surname" viene associato alla variabile "surname"
-        surname = request.json['surname']
+        Cognome = request.json['surname']
         # Il valore del campo "email" viene associato alla variabile "email"
-        email = request.json['email']
+        Email = request.json['email']
         # Il valore del campo "password" viene associato alla variabile "password"
-        password = request.json['password']
+        Password = request.json['password']
         # Crea una connessione
         conn = connection()
         # Crea un cursore
@@ -112,7 +112,7 @@ def register():
         else:
         # Esegue la query
             cursor.execute(
-                'INSERT INTO docenti (name, surname, email, password) VALUES (%s, %s, %s, %s)', (name, surname, email, password))
+                'INSERT INTO docenti (name, surname, email, password) VALUES (%s, %s, %s, %s)', (Nome, Cognome, Email, Password))
             conn.commit()
             return jsonify({"message": "Registrazione effettuata con successo!"}), 201
 

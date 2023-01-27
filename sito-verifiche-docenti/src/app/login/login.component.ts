@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
           this.successMessage = "Accesso effettuato correttamente!";
           localStorage.setItem('verifica', JSON.stringify(data));
           // Il metodo "navigate" serve per reindirizzare ad un'altra pagina
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/home']);
         }
       },
       

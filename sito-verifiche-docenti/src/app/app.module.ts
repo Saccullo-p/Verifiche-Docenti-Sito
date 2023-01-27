@@ -6,18 +6,18 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ExamListComponent } from './exam-list/exam-list.component';
-import { TeachersComponent } from './teachers/teachers.component';
+import { HomeComponent } from './home/home.component';
+import { DocentiComponent } from './docenti/docenti.component';
+import { VerificheComponent } from './verifiche/verifiche.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent,
-    ExamListComponent,
-    TeachersComponent
+    HomeComponent,
+    DocentiComponent,
+    VerificheComponent
   ],
   imports: [
     BrowserModule,
