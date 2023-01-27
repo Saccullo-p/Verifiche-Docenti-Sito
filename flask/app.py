@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, flash,  render_template, Response
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
+# Regular expression operations
 import re
 from flask_restful import Resource, Api, reqparse
 from flask_cors import CORS
@@ -8,6 +9,7 @@ import pymssql
 import pandas as pd
 from bson import json_util
 import json
+# PostgreSQL database adapter for Python
 import psycopg2
 import psycopg2.extras
 
@@ -40,7 +42,6 @@ def docenti():
     cur.execute("SELECT * FROM docenti")
     # Raccoglie tutte le righe
     list_users = cur.fetchall()
-
     return jsonify(list_users)
     resp = jsonify(list_users)
     # Ritorna un json.dumps
@@ -52,6 +53,7 @@ def login():
     if request.method == 'POST':
         email = request.json['email']
         password = request.json['password']
+        # Crea una connessione
         conn = connection()
         # Crea un cursore
         cursor = conn.cursor()
@@ -90,7 +92,7 @@ def register():
         email = request.json['email']
         # Il valore del campo "password" viene associato alla variabile "password"
         password = request.json['password']
-
+        # Crea una connessione
         conn = connection()
         # Crea un cursore
         cursor = conn.cursor()
@@ -118,6 +120,7 @@ def register():
 @app.route('/verifiche', methods=['POST', 'GET'])
 def verifiche():
     if request.method == 'GET':
+        # Crea una connessione
         conn = connection()
         # Crea un cursore
         cur = conn.cursor(as_dict=True)
@@ -125,9 +128,12 @@ def verifiche():
         cur.execute("SELECT * FROM Verifiche")
         # Raccoglie i dati
         data = cur.fetchall()
+        # Inizializza una lista vuota
         dataJson = []
         print(data)
+        # Inizia un ciclo per iterare attraverso ogni documento nella lista "data"
         for doc in data:
+            # Assegna la chiave "id" del documento alla variabile "id"
             id = doc['id']
             title = doc['title']
             course = doc['course']
@@ -138,6 +144,8 @@ def verifiche():
             link = doc['link']
             griglia = doc['griglia']
             dataDict = {
+                # Aggiunge una coppia chiave-valore al dizionario "dataDict"
+                # Con la chiave "id" e il valore assegnato alla variabile "id"
                 'id' :id,
                 'title': title,
                 'course': course,
@@ -147,28 +155,9 @@ def verifiche():
                 'subject': subject,
                 'link': link,
                 'griglia': griglia,
-
-
             }
             dataJson.append(dataDict)
         return jsonify(dataJson)
-
-    if request.method == 'DELETE':
-        conn = connection()
-        cur = conn.cursor()
-
-        cur.execute('SELECT * FROM Verifiche WHERE id = %s', (id,))
-        ver = cur.fetchone()
-        if ver:
-            cur.execute('DELETE FROM Verifiche WHERE id = %s', (id,))
-            conn.commit()
-            cur.close()
-            conn.close()
-            return jsonify({'status': 'Data id: ' + str(id) + ' is deleted!'})
-        else:
-            return jsonify({"message": "Non trovato!"}), 404
-
-
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000)

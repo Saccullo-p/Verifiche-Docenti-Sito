@@ -29,17 +29,6 @@ export class ExamListComponent implements OnInit {
     this.data = data;
   }
 
-
-  deleteVerifica(id: string) {
-    this.userService.deleteVerifica(id)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.reloadData();
-        },
-        error => console.log(error));
-  }
-
   back() : void
   {
     this.router.navigate(['/dashboard']);
