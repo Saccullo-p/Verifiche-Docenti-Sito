@@ -10,10 +10,7 @@ export class AppComponent {
   constructor(private router: Router) {}
   
   logout() {
-    // Clear session data
     localStorage.removeItem('user');
-
-    // Redirect to login page
     this.router.navigate(['/login']);
   }
 

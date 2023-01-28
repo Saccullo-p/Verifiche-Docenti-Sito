@@ -9,10 +9,10 @@ import { VerificheComponent } from './verifiche/verifiche.component';
 // Vengono definiti i percorsi dei diversi componenti
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'registrati', component: RegisterComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'docenti', component: DocentiComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'verifica', component: VerificheComponent },
+  { path: 'verifiche', component: VerificheComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 

@@ -15,14 +15,6 @@ export class ExamService {
 
   constructor(private http: HttpClient) { }
 
-  getVerifica(id: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
-  }
-  
-  deleteVerifica(id: string): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
-  }
-
   getVerificaList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
