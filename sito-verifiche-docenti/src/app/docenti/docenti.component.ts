@@ -10,6 +10,7 @@ import {Location} from '@angular/common'
   templateUrl: './docenti.component.html',
   styleUrls: ['./docenti.component.css']
 })
+
 export class DocentiComponent {
 // Viene creato un vettore "data" di tipo "Docente"
 data: Docente[] = undefined!;

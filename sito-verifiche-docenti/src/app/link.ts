@@ -1,4 +1,4 @@
 export class flaskLink {
-    // Link da cambiare all'avvio
-    public static _API='https://5000-saccullop-verifichedoce-c8ef76i9jeg.ws-eu84.gitpod.io/';
+    // Inserire il link e tenere lo slash alla fine
+    public static _API='https://5000-saccullop-verifichedoce-70wddsml5zd.ws-eu84.gitpod.io/';
 }

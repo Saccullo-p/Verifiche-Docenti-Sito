@@ -39,7 +39,7 @@ def docenti():
     # Crea un cursore
     cur = conn.cursor(as_dict=True)
     # Esegue la query di SQL
-    cur.execute("SELECT * FROM docenti")
+    cur.execute("SELECT * FROM Docenti")
     # Raccoglie tutte le righe
     list_users = cur.fetchall()
     return jsonify(list_users)

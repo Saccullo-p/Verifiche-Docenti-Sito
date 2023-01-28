@@ -28,6 +28,6 @@ export class ExamService {
   }
 
   getDocentiList(): Observable<any> {
-    return this.http.get(`${this.baseUrlPrin}` + 'teachers');
+    return this.http.get(`${this.baseUrlPrin}` + 'docenti');
   }
 }

@@ -8,5 +8,4 @@ export class Exam {
     subject: string= "";
     title: string= "";
     griglia: string= "";
-   /*active: boolean ;*/
 }
