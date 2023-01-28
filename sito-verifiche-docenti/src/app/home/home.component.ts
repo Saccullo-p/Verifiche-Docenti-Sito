@@ -18,7 +18,7 @@ export class HomeComponent {
     this.router.navigate(['/docenti']);
   }
   veri()  {
-    this.router.navigate(['/verifica']);
+    this.router.navigate(['/verifiche']);
   }
 
 }
