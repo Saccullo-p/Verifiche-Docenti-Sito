@@ -48,6 +48,7 @@ def docenti():
     resp = json_util.dumps(list_users)
     return Response(resp, mimetype='application/json')
 
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -67,20 +68,9 @@ def login():
             return jsonify("Doesn't match"), 400
 
     return jsonify({"message": "Error"}), 400
-
-
-@app.route('/logout')
-def logout():
-    if 'loggedin' in session:
-        session.pop('loggedin', None)
-        session.pop('name', None)
-        session.pop('email', None)
-        return jsonify({"message": "Logged out successfully"}), 200
-    else:
-        return jsonify({"message": "You are not logged in"}), 400
         
 
-@app.route('/register', methods=['GET', 'POST'])
+@app.route('/registrati', methods=['GET', 'POST'])
 def register():
     # Se la richiesta HTTP è di tipo "POST"
     if request.method == 'POST':
@@ -103,9 +93,6 @@ def register():
         # Se l'account è già esistente, restituisce un messaggio di errore
         if account:
             return jsonify({"message": "Account già esistente!"}), 400
-        # Se l'indirizzo email non è valido, restituisce un messaggio di errore
-        elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
-            return jsonify({"message": "Indirizzo email non valido!"}), 400
         # Se non sono stati compilati tutti i campi del modulo, restituisce un messaggio di errore
         elif not name or not surname or not email or not password:
             return jsonify({"message": "Compilare tutti i campi del modulo!"}), 400
@@ -115,6 +102,7 @@ def register():
                 'INSERT INTO docenti (name, surname, email, password) VALUES (%s, %s, %s, %s)', (name, surname, email, password))
             conn.commit()
             return jsonify({"message": "Registrazione effettuata con successo!"}), 201
+
 
 @app.route('/verifiche', methods=['POST', 'GET'])
 def verifiche():

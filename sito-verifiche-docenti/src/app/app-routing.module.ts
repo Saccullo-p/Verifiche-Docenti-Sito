@@ -3,13 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { DocentiComponent } from './docenti/docenti.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { RegistratiComponent } from './registrati/registrati.component';
 import { VerificheComponent } from './verifiche/verifiche.component';
 
 // Vengono definiti i percorsi dei diversi componenti
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'registrati', component: RegistratiComponent },
   { path: 'docenti', component: DocentiComponent },
   { path: 'home', component: HomeComponent },
   { path: 'verifiche', component: VerificheComponent },

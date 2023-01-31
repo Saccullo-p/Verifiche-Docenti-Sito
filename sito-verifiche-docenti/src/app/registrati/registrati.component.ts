@@ -6,12 +6,12 @@ import { Docente } from '../docente';
 import { flaskLink } from '../link';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-registrati',
+  templateUrl: './registrati.component.html',
+  styleUrls: ['./registrati.component.css']
 })
 
-export class RegisterComponent implements OnInit {
+export class RegistratiComponent implements OnInit {
   name: string = '';
   surname: string= '';
   email: string= '';
