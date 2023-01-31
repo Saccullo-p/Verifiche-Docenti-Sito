@@ -41,7 +41,7 @@ export class RegistratiComponent implements OnInit {
   register() {
     // Viene inviata una richiesta POST contenente i dati di registrazione all'API
     // Quando la richiesta viene completata con successo, la funzione "data" viene chiamata
-    this.http.post( this.baseUrlPrin + 'register',{ name: this.name.charAt(0).toUpperCase() + this.name.slice(1), surname: this.surname.charAt(0).toUpperCase() + this.surname.slice(1), email: this.email, password: this.password }).subscribe(
+    this.http.post( this.baseUrlPrin + 'registrati',{ name: this.name.charAt(0).toUpperCase() + this.name.slice(1), surname: this.surname.charAt(0).toUpperCase() + this.surname.slice(1), email: this.email, password: this.password }).subscribe(
       data => {
         console.log(data);
         // Il metodo "hasOwnProperty" serve per verificare se l'oggetto di risposta ha una proprietà "error"
