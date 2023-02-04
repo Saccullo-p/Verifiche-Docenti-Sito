@@ -1,6 +1,15 @@
 version: '3.7'
 
 services:
+  nginx-proxy:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports: 
+      - 8080:8080
+    networks:
+      - shared-network
 
   client:
       build:
@@ -13,7 +22,7 @@ services:
         - 4200:4200
       networks:
       - shared-network
-  server:
+  api-server:
       build:
         dockerfile: Dockerfile
         context: ./flask
