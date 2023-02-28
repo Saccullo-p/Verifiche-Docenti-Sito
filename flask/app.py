@@ -13,7 +13,9 @@ import json
 import psycopg2
 import psycopg2.extras
 
+
 app = Flask(__name__)
+
 
 app.secret_key = 'xyzsdfg'
 

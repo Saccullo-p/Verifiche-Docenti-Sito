@@ -10,7 +10,6 @@ import { flaskLink } from './link';
 export class ExamService {
 
   private baseUrlPrin = flaskLink._API;
-
   private baseUrl = this.baseUrlPrin + 'verifiche';
 
   constructor(private http: HttpClient) { }

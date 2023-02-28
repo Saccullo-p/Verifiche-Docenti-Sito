@@ -16,7 +16,7 @@ data: Exam[] = undefined!;
 // Viene creato l'Observable "obsRooms" di oggetti "Exam"
 obsRooms: Observable<Exam[]> | undefined
 
-constructor(private userService: ExamService, private router: Router,private location: Location ) { }
+constructor(private userService: ExamService, private router: Router, private location: Location ) { }
 
 ngOnInit() {
   this.reloadData();
