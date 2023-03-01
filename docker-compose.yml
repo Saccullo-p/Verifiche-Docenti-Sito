@@ -18,8 +18,8 @@ services:
       volumes:
         - /app/node_modules 
         - ./sito-verifiche-docenti:/app
-      ports:
-        - 4200:4200
+      #ports:
+        #- 4200:4200
       networks:
       - shared-network
   api-server:
